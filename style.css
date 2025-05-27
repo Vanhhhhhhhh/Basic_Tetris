@@ -3,7 +3,7 @@
     height: 400px;
     display: flex;
     flex-wrap: wrap;
-    background-color: #004242;
+    background-color: #004040;
 }
 
 .grid div {
@@ -13,4 +13,33 @@
 }
 body {
     font-family: 'Fira Code', monospace;
+    background-color: #faf0e6;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* căn giữa theo chiều dọc */
+    align-items: center;     /* căn giữa theo chiều ngang */
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    background: #f8f8f8;
+}
+
+#start-btn {
+    padding: 12px 32px;
+    background: linear-gradient(45deg, #004040, #01baba);
+    color: #f0f5f5;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 20px;
+}
+#start-btn:hover {
+    background: linear-gradient(90deg, #01cece, #005555);
+    transform: translateY(-2px) scale(1.04);
 }
