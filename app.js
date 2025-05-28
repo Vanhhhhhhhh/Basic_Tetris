@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         draw();
         freeze();
         addScore();
+        gameOver();
     }
     // freezing the tetromino
     function freeze(){
@@ -211,6 +212,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 squares = squaresRemoved.concat(squares)
                 squares.forEach(cell => grid.appendChild(cell))
             }
+        }
+    }
+    // game over function
+    function gameOver() {
+        if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+            scoreDisplay.innerHTML = 'Game Over';
+            clearInterval(timerId);
+            document.removeEventListener('keydown', control);
         }
     }
 });
