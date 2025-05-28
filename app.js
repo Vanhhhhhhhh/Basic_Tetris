@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return pos >= 0 && squares[pos].classList.contains('taken');
             })) {
                 clearInterval(timerId);
-                alert('Game Over');
                 return;
             }
             draw();
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
         if (!isAtRightEdge) currentPosition += 1;
         if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-            currentPosition -= 1;
+            currentPosition -= 1; //1 step back if it hits the wall
         }
         draw();
     }
@@ -146,6 +145,15 @@ document.addEventListener('DOMContentLoaded', function() {
             rotate();
         } else if (e.keyCode === 40) {
             moveDown();
+        } else if (e.keyCode === 67) { // 'C' key to change tetromino with the holder
+            undraw();
+            let temp = random
+            random = nextRandom; // swap current tetromino with the next one
+            nextRandom = temp; // set the next tetromino to the one we just had
+            current = tetrominoes[random][0]; // reset to first rotation of new tetromino
+            currentPosition = 4; // reset position
+            draw();
+            displayNextTetromino();
         }
     }
     document.addEventListener('keyup', control);
@@ -154,16 +162,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const displaySquares = document.querySelectorAll('.mini-grid div');
     const displayWidth = 4;
     let displayIndex = 0;
-
+// [l1Tetromino, l2Tetromino, z1Tetromino, z2Tetromino, tTetromino, oTetromino, iTetromino]
     //The tetrominoes without rotations for the mini-grid
     const upNextTetrominoes = [
-        [0, 1, displayWidth, displayWidth + 1], // oTetromino
-        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], // iTetromino
-        [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // z1Tetromino
-        [1, displayWidth, displayWidth + 1, displayWidth * 2], // z2Tetromino
-        [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
-        [0, displayWidth, displayWidth * 2, displayWidth * 2 + 1], // l1Tetromino
-        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 2] // l2Tetromino
+        [displayWidth, displayWidth + 1, displayWidth + 2, displayWidth * 2],
+        [0, displayWidth, displayWidth + 1, displayWidth + 2],
+        [displayWidth + 1, displayWidth + 2, displayWidth * 2, displayWidth * 2 + 1],
+        [displayWidth, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 2 + 2],
+        [1, displayWidth + 1, displayWidth + 2, displayWidth * 2 + 1],
+        [0, 1, displayWidth, displayWidth + 1],
+        [displayWidth, displayWidth + 1, displayWidth + 2, displayWidth + 3],
     ]
     // display the upcoming tetromino
     function displayNextTetromino() {
