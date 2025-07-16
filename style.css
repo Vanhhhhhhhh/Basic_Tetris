@@ -1,79 +1,80 @@
+/* test commit */
 .grid {
-    width: 200px;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #004040;
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #004040;
 }
 
 .grid div {
-    width: 20px;
-    height: 20px;
-    border: #004040 solid 1px;
-    box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: #004040 solid 1px;
+  box-sizing: border-box;
 }
 
 .next-piece {
-    margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .mini-grid {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #004040;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #004040;
 }
 
 .mini-grid div {
-    width: 20px;
-    height: 20px;
-    border: #004040 solid 1px;
-    box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: #004040 solid 1px;
+  box-sizing: border-box;
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 body {
-    font-family: 'Fira Code', monospace;
-    background-color: #faf0e6;
+  font-family: "Fira Code", monospace;
+  background-color: #faf0e6;
 
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* căn giữa theo chiều dọc */
-    align-items: center;     /* căn giữa theo chiều ngang */
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-    background: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* căn giữa theo chiều dọc */
+  align-items: center; /* căn giữa theo chiều ngang */
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  background: #f8f8f8;
 }
 
 .grid .taken {
-    border: none;
+  border: none;
 }
-.tetromino{
-    height: 20px;
-    width: 20px;
-    background-color: #008080;
+.tetromino {
+  height: 20px;
+  width: 20px;
+  background-color: #008080;
 }
 #start-btn {
-    padding: 12px 32px;
-    background: linear-gradient(45deg, #004040, #01baba);
-    color: #f0f5f5;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-family: 'Fira Code', monospace;
-    font-weight: 600;
-    box-shadow: 5px 5px 8px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-bottom: 20px;
+  padding: 12px 32px;
+  background: linear-gradient(45deg, #004040, #01baba);
+  color: #f0f5f5;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-family: "Fira Code", monospace;
+  font-weight: 600;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-bottom: 20px;
 }
 #start-btn:hover {
-    background: linear-gradient(90deg, #01cece, #005555);
-    transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(90deg, #01cece, #005555);
+  transform: translateY(-2px) scale(1.04);
 }
